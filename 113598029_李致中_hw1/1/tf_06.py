@@ -73,4 +73,4 @@ def print_all(word_freqs):
 #
 # The main function
 #
-print_all(sort(frequencies(insert_stop_words("./txt_file/stop_words.txt")(scan(filter_chars_and_normalize(read_file(sys.argv[1]))))))[0:25])
+print_all(sort(frequencies(insert_stop_words("./stop_words.txt")(scan(filter_chars_and_normalize(read_file(sys.argv[1]))))))[0:25])

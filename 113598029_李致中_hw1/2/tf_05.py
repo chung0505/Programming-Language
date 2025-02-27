@@ -40,7 +40,7 @@ def scan():
 
 def remove_stop_words():
     global words
-    with open('../stop_words.txt') as f:
+    with open('./stop_words.txt') as f:
         stop_words = f.read().split(',')
     # add single-letter words
     stop_words.extend(list(string.ascii_lowercase))
