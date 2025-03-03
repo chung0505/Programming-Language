@@ -18,7 +18,7 @@ def filter_chars_and_normalize(str_data):
     Takes a string and returns a copy with all nonalphanumeric 
     chars replaced by white space
     """
-    pattern = re.compile('[\W_]+')
+    pattern = re.compile("\W_]+")
     return pattern.sub(' ', str_data).lower()
 
 def scan(str_data):
@@ -36,6 +36,7 @@ def insert_stop_words(file_name):
         """
         with open(file_name) as f:
             stop_words = f.read().split(',')
+
         # add single-letter words
         stop_words.extend(list(string.ascii_lowercase))
         return [w for w in word_list if not w in stop_words]
