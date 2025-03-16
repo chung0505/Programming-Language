@@ -1,4 +1,4 @@
-package goproject
+package main
 
 import (
 	"fmt"
@@ -93,5 +93,5 @@ func printAll(pairs []pair) {
 }
 
 func main() {
-	printAll(sort(frequecies(removeStopWords(scan(filterCharsAndNormalize(readFile("pride-and-prejudice.txt")))))))
+	printAll(sort(frequecies(removeStopWords(scan(filterCharsAndNormalize(readFile("../pride-and-prejudice.txt")))))))
 }

@@ -1,4 +1,4 @@
-package goproject
+package main
 
 import (
 	"testing"
@@ -13,8 +13,8 @@ func TestReadFile(t *testing.T) {
 }
 
 func TestFilterCharsAndNormalize(t *testing.T) {
-	input := "This is Not a hard test. This test is only a test."
-	expected := "this is not a hard test this test is only a test "
+	input := "This is Not a hard test. This test is only a test. a"
+	expected := "this is not a hard test this test is only a test a"
 	result := filterCharsAndNormalize(input)
 	if result != expected {
 		t.Errorf("expected %s, got %s", expected, result)
