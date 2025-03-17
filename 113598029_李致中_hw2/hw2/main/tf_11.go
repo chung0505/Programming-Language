@@ -9,10 +9,6 @@ import (
 	"strings"
 )
 
-type TFTExercise interface {
-	Info() string
-}
-
 type DataStorageManager struct {
 	data string
 }
