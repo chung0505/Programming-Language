@@ -1,6 +1,9 @@
 package main
 
 import (
+	"bytes"
+	"os"
+	"strings"
 	"testing"
 )
 
@@ -54,5 +57,27 @@ func TestSorted(t *testing.T) {
 		if result[i].word != expected[i].word || result[i].count != expected[i].count {
 			t.Errorf("expected %s %d, got %s %d", expected[0].word, expected[0].count, pair.word, pair.count)
 		}
+	}
+}
+
+func TestRun(t *testing.T) {
+	input := NewWordFrequencyController("../test.txt")
+
+	oldStdout := os.Stdout
+	r, w, _ := os.Pipe()
+	os.Stdout = w
+
+	input.Run()
+
+	w.Close()
+	os.Stdout = oldStdout
+
+	var buf bytes.Buffer
+	buf.ReadFrom(r)
+	capturedOutput := buf.String()
+
+	expectedOutput := "test  -  3\nhard  -  1"
+	if !strings.Contains(capturedOutput, expectedOutput) {
+		t.Errorf("expected %s, got %s", expectedOutput, capturedOutput)
 	}
 }
